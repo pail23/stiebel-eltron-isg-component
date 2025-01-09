@@ -157,6 +157,7 @@ from .const import (
     VOLUME_STREAM,
     VOLUME_STREAM_WP1,
     VOLUME_STREAM_WP2,
+    EVU,
 )
 
 _LOGGER: logging.Logger = logging.getLogger(__package__)
@@ -195,8 +196,15 @@ class StiebelEltronModbusWPMDataCoordinator(StiebelEltronModbusDataCoordinator):
             result[IS_SUMMER_MODE] = (state & (1 << 7)) != 0
             result[IS_COOLING] = (state & (1 << 8)) != 0
             result[EVAPORATOR_DEFROST] = (state & (1 << 9)) != 0
-
-            decoder.skip_bytes(4)
+            
+            # 2502
+            state = decoder.decode_16bit_uint()
+            result[EVU] =  (state & (1 << 0)) != 0
+            
+            # 2503
+            decoder.skip_bytes(2)
+            
+            # 2504
             result[ERROR_STATUS] = decoder.decode_16bit_uint()
             decoder.skip_bytes(4)
             # 2507

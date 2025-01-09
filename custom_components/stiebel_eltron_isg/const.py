@@ -135,6 +135,7 @@ PUMP_ON_HK1 = "pump_on_hk1"
 PUMP_ON_HK2 = "pump_on_hk2"
 COMPRESSOR_ON = "compressor_on"
 CIRCULATION_PUMP = "circulation_pump"
+EVU = "evu"
 
 HEATING_CIRCUIT_1_PUMP = "heating_circuit_1_pump"
 HEATING_CIRCUIT_2_PUMP = "heating_circuit_2_pump"

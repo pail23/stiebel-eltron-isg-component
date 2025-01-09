@@ -66,6 +66,7 @@ from .const import (
     SOURCE_PUMP,
     SWITCHING_PROGRAM_ENABLED,
     VENTILATION,
+    EVU,
 )
 from .data import StiebelEltronISGIntegrationConfigEntry
 from .entity import StiebelEltronISGEntity
@@ -406,6 +407,12 @@ BINARY_SENSOR_TYPES = [
         name="Emergency heating 1 & 2",
         key=EMERGENCY_HEATING_1_2,
         icon="mdi:fence-electric",
+        has_entity_name=True,
+    ),
+    BinarySensorEntityDescription(
+        name="EVU",
+        key=EVU,
+        icon="mdi:power-off",
         has_entity_name=True,
     ),
 ]
